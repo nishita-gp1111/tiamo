@@ -4,7 +4,7 @@ import { LuxuryMotion } from './components/LuxuryMotion';
 import { publicAsset } from './lib/publicAsset';
 import './globals.css';
 
-const siteUrl = 'https://nishita-gp1111.github.io/tiamo';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nishita-gp1111.github.io/tiamo';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

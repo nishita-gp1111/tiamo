@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build",
-    "build:github-pages": "GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/tiamo next build",
+    "build:github-pages": "GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/tiamo NEXT_PUBLIC_SITE_URL=https://nishita-gp1111.github.io/tiamo next build",
+    "build:cloudflare-pages": "CLOUDFLARE_PAGES=true NEXT_PUBLIC_SITE_URL=https://tiamo-cec.pages.dev next build",
     "start": "vinext start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next"
   },

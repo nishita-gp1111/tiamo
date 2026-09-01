@@ -1,15 +1,17 @@
 import type { NextConfig } from 'next';
 
 const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+const isCloudflarePages = process.env.CLOUDFLARE_PAGES === 'true';
+const isStaticExport = isGitHubPages || isCloudflarePages;
 const basePath = isGitHubPages ? '/tiamo' : '';
 
 const nextConfig: NextConfig = {
-  output: isGitHubPages ? 'export' : undefined,
+  output: isStaticExport ? 'export' : undefined,
   basePath,
   assetPrefix: basePath || undefined,
-  trailingSlash: isGitHubPages,
+  trailingSlash: isStaticExport,
   images: {
-    unoptimized: isGitHubPages,
+    unoptimized: isStaticExport,
   },
 };
 
