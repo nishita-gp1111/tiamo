@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReserveBand, SiteFooter, SiteHeader } from './components/SiteChrome';
+import { publicAsset } from './lib/publicAsset';
 
 export default function Home() {
   return (
@@ -39,8 +40,8 @@ export default function Home() {
           <Link className="text-link" href="/gallery">Ti Amoの雰囲気を見る <span>→</span></Link>
         </div>
         <div className="intro-images">
-          <Image className="intro-image-main" src="/images/optimized/tiamo-18.webp" alt="Ti Amoのママがカウンターで笑顔を見せる様子" width={1600} height={1200} />
-          <Image className="intro-image-sub" src="/images/optimized/tiamo-15-enhanced.webp" alt="Ti Amoのボックス席とカラオケモニター" width={1448} height={1086} />
+          <Image className="intro-image-main" src={publicAsset('/images/optimized/tiamo-18.webp')} alt="Ti Amoのママがカウンターで笑顔を見せる様子" width={1600} height={1200} />
+          <Image className="intro-image-sub" src={publicAsset('/images/optimized/tiamo-15-enhanced.webp')} alt="Ti Amoのボックス席とカラオケモニター" width={1448} height={1086} />
         </div>
       </section>
 
@@ -67,7 +68,7 @@ export default function Home() {
 
       <section className="event-section content-section">
         <div className="event-visual">
-          <Image src="/images/optimized/tiamo-14-enhanced.webp" alt="花とカラフルな装飾が飾られたTi Amo店内" width={1448} height={1086} />
+          <Image src={publicAsset('/images/optimized/tiamo-14-enhanced.webp')} alt="花とカラフルな装飾が飾られたTi Amo店内" width={1448} height={1086} />
           <span>Seasonal<br />Events</span>
         </div>
         <div className="event-copy">

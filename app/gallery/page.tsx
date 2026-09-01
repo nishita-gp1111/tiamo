@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { PageHero } from '../components/PageHero';
 import { ReserveBand, SiteFooter, SiteHeader } from '../components/SiteChrome';
+import { publicAsset } from '../lib/publicAsset';
 
 export const metadata: Metadata = {
   title: '店内・イベント｜Snack Ti Amo',
@@ -37,7 +38,7 @@ export default function GalleryPage() {
       <section className="photo-grid" aria-label="Ti Amo 店内写真">
         {photos.map(([file, alt, size]) => (
           <figure className={size ? `photo-${size}` : ''} key={file}>
-            <Image src={`/images/optimized/${file}`} alt={alt} width={1600} height={1200} />
+            <Image src={publicAsset(`/images/optimized/${file}`)} alt={alt} width={1600} height={1200} />
             <figcaption>{alt}</figcaption>
           </figure>
         ))}

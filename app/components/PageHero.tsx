@@ -1,3 +1,5 @@
+import { publicAsset } from '../lib/publicAsset';
+
 export function PageHero({
   eyebrow,
   title,
@@ -12,7 +14,7 @@ export function PageHero({
   align?: 'left' | 'center';
 }) {
   return (
-    <section className={`page-hero page-hero-${align}`} style={{ backgroundImage: `url('${image}')` }}>
+    <section className={`page-hero page-hero-${align}`} style={{ backgroundImage: `url('${publicAsset(image)}')` }}>
       <div className="page-hero-shade" aria-hidden="true" />
       <div className="page-hero-content">
         <p className="eyebrow">{eyebrow}</p>
