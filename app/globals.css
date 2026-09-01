@@ -184,7 +184,7 @@ img { display: block; max-width: 100%; }
 .menu-card dd, .night-menu-card dd { white-space: nowrap; font-family: Georgia, serif; }
 
 .photo-quote { min-height: 560px; display: grid; place-items: center; padding: 70px 24px; color: white; text-align: center; background-position: center; background-size: cover; }
-.day-photo-quote { background-image: linear-gradient(rgb(17 8 11 / 48%), rgb(17 8 11 / 48%)), url('/images/optimized/tiamo-5.webp'); }
+.day-photo-quote { background-image: linear-gradient(rgb(17 8 11 / 42%), rgb(17 8 11 / 42%)), url('/images/optimized/tiamo-5-enhanced.webp'); }
 .photo-quote blockquote { margin: 0; font: 400 clamp(38px, 5vw, 70px)/1.5 "Hiragino Mincho ProN", "Yu Mincho", serif; letter-spacing: .08em; text-shadow: 0 5px 30px rgb(0 0 0 / 30%); }
 
 .night-menu-wrap { padding: clamp(100px, 12vw, 165px) max(24px, calc((100vw - 1180px) / 2)); color: white; background: #1f1418; }
@@ -195,7 +195,7 @@ img { display: block; max-width: 100%; }
 .night-menu-card h3 { color: #e7b6c1; border-color: rgb(255 255 255 / 15%); }
 .night-menu-card dl div { border-color: rgb(255 255 255 / 15%); }
 .private-section { display: grid; grid-template-columns: 1.15fr .85fr; min-height: 680px; }
-.private-photo { background: url('/images/optimized/tiamo-30.webp') center / cover; }
+.private-photo { background: url('/images/optimized/tiamo-30-enhanced.webp') center / cover; }
 .private-copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: clamp(55px, 8vw, 120px); background: #f2eae1; }
 .private-copy .button { margin-top: 34px; }
 
