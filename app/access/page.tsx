@@ -13,7 +13,7 @@ export default function AccessPage() {
   return (
     <main>
       <SiteHeader />
-      <PageHero eyebrow="ACCESS & RESERVATION" title="アクセス・ご予約" lead="見沼代親水公園駅から徒歩約3分。今夜も笑顔でお待ちしています。" image="/images/optimized/tiamo-34.webp" />
+      <PageHero eyebrow="ACCESS & RESERVATION" title="アクセス・ご予約" lead="見沼代親水公園駅から徒歩約3分。今夜も笑顔でお待ちしています。" image="/images/optimized/tiamo-34-enhanced.webp" />
 
       <section className="access-section content-section">
         <div className="access-details">

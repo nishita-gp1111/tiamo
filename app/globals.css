@@ -208,7 +208,7 @@ img { display: block; max-width: 100%; }
 .photo-grid figure:hover img { transform: scale(1.025); filter: brightness(.82); }
 .photo-grid figcaption { position: absolute; left: 20px; bottom: 18px; opacity: 0; transform: translateY(8px); color: white; font-size: 12px; letter-spacing: .08em; transition: .3s ease; }
 .photo-grid figure:hover figcaption { opacity: 1; transform: translateY(0); }
-.season-section { display: grid; grid-template-columns: 1fr 1fr auto; gap: 70px; align-items: center; padding: 100px max(24px, calc((100vw - 1180px) / 2)); color: white; background: linear-gradient(100deg, rgb(84 13 39 / 94%), rgb(44 10 22 / 84%)), url('/images/optimized/tiamo-14.webp') center / cover; }
+.season-section { display: grid; grid-template-columns: 1fr 1fr auto; gap: 70px; align-items: center; padding: 100px max(24px, calc((100vw - 1180px) / 2)); color: white; background: linear-gradient(100deg, rgb(84 13 39 / 94%), rgb(44 10 22 / 84%)), url('/images/optimized/tiamo-14-enhanced.webp') center / cover; }
 .season-section .section-kicker { color: #e8bbc5; }
 .season-section h2 { margin: 0; font: italic 400 clamp(48px, 5vw, 72px)/1.05 Georgia, serif; }
 .season-section > p { max-width: 470px; color: rgb(255 255 255 / 72%); font-size: 14px; line-height: 2; }

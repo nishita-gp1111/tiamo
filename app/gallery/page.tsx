@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const photos = [
   ['tiamo-24.webp', 'ゆったり座れるカウンター席', 'wide'],
-  ['tiamo-15.webp', 'カラオケを楽しめるボックス席', 'tall'],
+  ['tiamo-15-enhanced.webp', 'カラオケを楽しめるボックス席', 'tall'],
   ['tiamo-7.webp', '花とギターで彩られた店内', ''],
   ['tiamo-18.webp', '笑顔でお迎えします', 'tall'],
   ['tiamo-29.webp', 'グループでもくつろげる広い店内', 'wide'],
@@ -24,7 +24,7 @@ export default function GalleryPage() {
   return (
     <main>
       <SiteHeader />
-      <PageHero eyebrow="ATMOSPHERE · PEOPLE · EVENTS" title="店内とイベント" lead="少しだけ、Ti Amoの中をのぞいてみてください。" image="/images/optimized/tiamo-15.webp" align="center" />
+      <PageHero eyebrow="ATMOSPHERE · PEOPLE · EVENTS" title="店内とイベント" lead="少しだけ、Ti Amoの中をのぞいてみてください。" image="/images/optimized/tiamo-15-enhanced.webp" align="center" />
 
       <section className="gallery-intro content-section">
         <div>
