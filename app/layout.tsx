@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { LuxuryMotion } from './components/LuxuryMotion';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="ja">
       <body>
+        <LuxuryMotion />
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
       </body>

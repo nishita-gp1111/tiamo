@@ -28,7 +28,7 @@ export default function NightPage() {
   return (
     <main>
       <SiteHeader />
-      <PageHero eyebrow="NIGHT TIME · DRINKS & KARAOKE" title="夜のTi Amo" lead="グラスを合わせて、好きな歌を。気取らない大人の夜をお楽しみください。" image="/images/optimized/tiamo-29.jpg" />
+      <PageHero eyebrow="NIGHT TIME · DRINKS & KARAOKE" title="夜のTi Amo" lead="グラスを合わせて、好きな歌を。気取らない大人の夜をお楽しみください。" image="/images/optimized/tiamo-29.webp" />
 
       <section className="plan-section content-section">
         <div className="plan-heading">

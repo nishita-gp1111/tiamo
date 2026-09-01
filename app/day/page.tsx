@@ -30,7 +30,7 @@ export default function DayPage() {
   return (
     <main>
       <SiteHeader />
-      <PageHero eyebrow="DAY TIME · KARAOKE & LUNCH" title="昼のTi Amo" lead="歌って、話して、のんびり過ごす。昼のTi Amoは気軽なカラオケ喫茶です。" image="/images/generated/day-food.png" />
+      <PageHero eyebrow="DAY TIME · KARAOKE & LUNCH" title="昼のTi Amo" lead="歌って、話して、のんびり過ごす。昼のTi Amoは気軽なカラオケ喫茶です。" image="/images/generated/day-food.webp" />
 
       <section className="plan-section content-section">
         <div className="plan-heading">

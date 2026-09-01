@@ -19,6 +19,7 @@ export function PageHero({
         <h1>{title}</h1>
         <p>{lead}</p>
       </div>
+      <div className="scroll-hint" aria-hidden="true"><span /> SCROLL</div>
     </section>
   );
 }

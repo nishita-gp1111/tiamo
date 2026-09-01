@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 const navItems = [
+  { href: '/', label: 'HOME' },
   { href: '/day', label: '昼のTi Amo' },
   { href: '/night', label: '夜のTi Amo' },
   { href: '/gallery', label: '店内・イベント' },

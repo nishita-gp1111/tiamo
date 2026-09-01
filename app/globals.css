@@ -7,17 +7,23 @@
   --cream: #f4eee6;
   --paper: #fbf8f3;
   --gold: #c8a96b;
+  --ease-luxury: cubic-bezier(.22, 1, .36, 1);
+  --pointer-x: 50%;
+  --pointer-y: 45%;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; }
+body { margin: 0; overflow-x: hidden; background: var(--paper); color: var(--ink); font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; }
 a { color: inherit; text-decoration: none; }
 
-.site-header { position: fixed; z-index: 20; top: 0; left: 0; right: 0; height: 88px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 clamp(24px, 4vw, 72px); color: white; border-bottom: 1px solid rgb(255 255 255 / 20%); background: linear-gradient(180deg, rgb(20 10 13 / 58%), transparent); }
+.site-header { position: fixed; z-index: 20; top: 0; left: 0; right: 0; height: 88px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 clamp(24px, 4vw, 72px); color: white; border-bottom: 1px solid rgb(255 255 255 / 20%); background: linear-gradient(180deg, rgb(20 10 13 / 58%), transparent); transition: height .55s var(--ease-luxury), background .55s ease, border-color .55s ease, box-shadow .55s ease; }
+.site-header.is-scrolled { height: 74px; border-color: rgb(255 255 255 / 9%); background: rgb(25 12 17 / 88%); box-shadow: 0 14px 45px rgb(12 5 8 / 18%); backdrop-filter: blur(18px) saturate(1.2); }
 .brand { display: inline-flex; flex-direction: column; width: max-content; }
-.brand-script { font-family: Georgia, "Times New Roman", serif; font-size: 30px; font-style: italic; line-height: 0.95; letter-spacing: .02em; }
-.brand-sub { margin-top: 7px; font-size: 8px; letter-spacing: .28em; opacity: .78; }
+.brand-script { font-family: Georgia, "Times New Roman", serif; font-size: 30px; font-style: italic; line-height: 0.95; letter-spacing: .02em; transition: transform .45s var(--ease-luxury); }
+.brand:hover .brand-script { transform: translateX(4px); }
+.brand-sub { margin-top: 7px; font-size: 8px; letter-spacing: .28em; opacity: .78; transition: opacity .4s ease; }
+.site-header.is-scrolled .brand-sub { opacity: .45; }
 .desktop-nav { display: flex; align-items: center; gap: clamp(22px, 2.6vw, 44px); font-size: 13px; letter-spacing: .08em; }
 .desktop-nav a { position: relative; }
 .desktop-nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -8px; height: 1px; background: white; transition: right .25s ease; }
@@ -25,17 +31,20 @@ a { color: inherit; text-decoration: none; }
 .header-call { justify-self: end; border: 1px solid rgb(255 255 255 / 65%); padding: 12px 17px; font-size: 12px; letter-spacing: .06em; backdrop-filter: blur(8px); }
 
 .hero { position: relative; min-height: 760px; height: 100svh; color: white; overflow: hidden; }
-.hero-photo { position: absolute; inset: 0; background: url('/images/optimized/tiamo-24.jpg') center 48% / cover no-repeat; transform: scale(1.015); }
+.hero-photo { position: absolute; inset: 0; background: url('/images/optimized/tiamo-24.webp') center 48% / cover no-repeat; transform: scale(1.015); animation: hero-cinematic 20s var(--ease-luxury) both; will-change: transform; }
 .hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(20 8 12 / 82%) 0%, rgb(20 8 12 / 53%) 46%, rgb(20 8 12 / 10%) 78%), linear-gradient(0deg, rgb(16 8 11 / 58%), transparent 42%); }
+.hero-shade::after { content: ""; position: absolute; inset: 0; opacity: .4; background: radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgb(220 165 178 / 16%), transparent 27%); transition: background-position .2s ease; mix-blend-mode: screen; }
 .hero-content { position: relative; z-index: 2; width: min(1220px, calc(100% - 48px)); margin: 0 auto; padding-top: clamp(185px, 23vh, 250px); }
 .eyebrow { margin: 0 0 28px; font: 500 10px/1.4 Arial, sans-serif; letter-spacing: .32em; color: #eadfd8; }
 .hero h1 { max-width: 780px; margin: 0; font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; font-size: clamp(48px, 6.5vw, 92px); font-weight: 400; line-height: 1.25; letter-spacing: .04em; text-shadow: 0 6px 28px rgb(0 0 0 / 20%); }
 .hero-lead { margin: 30px 0 0; font-size: clamp(15px, 1.3vw, 18px); line-height: 2; letter-spacing: .08em; color: rgb(255 255 255 / 82%); }
 .hero-actions { display: flex; gap: 14px; margin-top: 38px; }
-.button { display: inline-flex; min-width: 188px; min-height: 52px; align-items: center; justify-content: center; padding: 0 24px; font-size: 13px; letter-spacing: .1em; transition: transform .2s ease, background .2s ease; }
+.button { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; min-width: 188px; min-height: 52px; align-items: center; justify-content: center; padding: 0 24px; font-size: 13px; letter-spacing: .1em; transition: transform .45s var(--ease-luxury), background .35s ease, color .35s ease, border-color .35s ease, box-shadow .45s ease; }
+.button::after { content: ""; position: absolute; z-index: -1; top: -120%; bottom: -120%; left: -45%; width: 34%; transform: rotate(20deg); background: linear-gradient(90deg, transparent, rgb(255 255 255 / 42%), transparent); transition: left .75s var(--ease-luxury); }
+.button:hover::after { left: 118%; }
 .button:hover { transform: translateY(-2px); }
-.button-primary { background: var(--wine); color: white; }
-.button-primary:hover { background: #8d2742; }
+.button-primary { background: var(--wine); color: white; box-shadow: 0 12px 32px rgb(77 16 36 / 18%); }
+.button-primary:hover { background: #8d2742; box-shadow: 0 18px 40px rgb(77 16 36 / 26%); }
 .button-ghost { border: 1px solid rgb(255 255 255 / 55%); background: rgb(255 255 255 / 7%); backdrop-filter: blur(7px); }
 .button-ghost:hover { background: rgb(255 255 255 / 15%); }
 .hero-hours { position: absolute; z-index: 2; right: clamp(24px, 5vw, 80px); bottom: 52px; display: flex; gap: 1px; background: rgb(255 255 255 / 25%); }
@@ -80,9 +89,12 @@ a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 .mobile-menu { display: none; }
 .content-section { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
-.section-kicker { margin: 0 0 22px; color: var(--wine); font: 700 10px/1.4 Arial, sans-serif; letter-spacing: .27em; }
+.section-kicker { display: flex; align-items: center; gap: 13px; margin: 0 0 22px; color: var(--wine); font: 700 10px/1.4 Arial, sans-serif; letter-spacing: .27em; }
+.section-kicker::before { content: ""; width: 26px; height: 1px; flex: 0 0 auto; background: currentColor; transform-origin: left; transition: width .7s var(--ease-luxury); }
+.reveal-visible .section-kicker::before { width: 42px; }
 .text-link { display: inline-flex; align-items: center; gap: 18px; margin-top: 34px; padding-bottom: 8px; border-bottom: 1px solid #a58e91; color: var(--wine); font-size: 13px; letter-spacing: .08em; }
-.text-link span { font-size: 17px; }
+.text-link span { font-size: 17px; transition: transform .45s var(--ease-luxury); }
+.text-link:hover span { transform: translateX(7px); }
 .button-light { border: 1px solid rgb(255 255 255 / 64%); color: white; background: rgb(255 255 255 / 7%); backdrop-filter: blur(8px); }
 .button-light:hover { background: white; color: var(--wine); }
 .button-outline { border: 1px solid #a98e94; color: var(--wine); background: transparent; }
@@ -91,15 +103,17 @@ img { display: block; max-width: 100%; }
 .intro-copy h2, .event-copy h2, .menu-intro h2, .night-menu-title h2, .gallery-intro h2, .private-copy h2, .access-reserve h2 { margin: 0; font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; font-size: clamp(38px, 4.3vw, 64px); font-weight: 400; line-height: 1.45; letter-spacing: .05em; }
 .intro-copy > p:not(.section-kicker), .event-copy > p:not(.section-kicker), .menu-intro > p:not(.section-kicker), .gallery-intro > p, .private-copy > p:not(.section-kicker) { margin: 30px 0 0; color: #6a5a5d; font-size: 15px; line-height: 2.15; letter-spacing: .06em; }
 .intro-images { position: relative; min-height: 670px; }
-.intro-image-main { position: absolute; top: 0; right: 0; width: 72%; height: 550px; object-fit: cover; }
-.intro-image-sub { position: absolute; z-index: 2; left: 0; bottom: 0; width: 54%; height: 340px; object-fit: cover; border: 12px solid var(--paper); }
+.intro-image-main { position: absolute; top: 0; right: 0; width: 72%; height: 550px; object-fit: cover; transition: transform 1s var(--ease-luxury), filter .8s ease; }
+.intro-image-sub { position: absolute; z-index: 2; left: 0; bottom: 0; width: 54%; height: 340px; object-fit: cover; border: 12px solid var(--paper); transition: transform 1s var(--ease-luxury), filter .8s ease; }
+.intro-images:hover .intro-image-main { transform: translate3d(7px, -6px, 0) scale(1.012); filter: contrast(1.025); }
+.intro-images:hover .intro-image-sub { transform: translate3d(-7px, 8px, 0) scale(1.018); }
 
 .two-scenes { display: grid; grid-template-columns: repeat(2, 1fr); min-height: 690px; }
 .scene-card { position: relative; display: flex; align-items: flex-end; min-height: 690px; overflow: hidden; color: white; background-position: center; background-size: cover; }
 .scene-card::before { content: ""; position: absolute; inset: 0; background: inherit; transition: transform .7s ease; }
 .scene-card:hover::before { transform: scale(1.035); }
-.scene-day { background-image: url('/images/generated/day-food.png'); }
-.scene-night { background-image: url('/images/optimized/tiamo-29.jpg'); }
+.scene-day { background-image: url('/images/generated/day-food.webp'); }
+.scene-night { background-image: url('/images/optimized/tiamo-29.webp'); }
 .scene-shade { position: absolute; inset: 0; background: linear-gradient(0deg, rgb(19 8 12 / 84%), rgb(19 8 12 / 6%) 72%); }
 .scene-copy { position: relative; z-index: 2; width: min(100%, 610px); padding: clamp(42px, 5vw, 78px); }
 .scene-copy .section-kicker { color: #e4bdc4; }
@@ -109,10 +123,11 @@ img { display: block; max-width: 100%; }
 
 .event-section { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(60px, 9vw, 140px); align-items: center; padding-block: clamp(110px, 13vw, 190px); }
 .event-visual { position: relative; }
-.event-visual img { width: 100%; height: 620px; object-fit: cover; }
-.event-visual span { position: absolute; right: -42px; bottom: -55px; width: 185px; height: 185px; display: grid; place-items: center; border-radius: 50%; color: white; background: var(--wine); text-align: center; font: italic 28px/1.25 Georgia, serif; }
+.event-visual img { width: 100%; height: 620px; object-fit: cover; transition: transform 1.2s var(--ease-luxury); }
+.event-visual:hover img { transform: scale(1.018); }
+.event-visual span { position: absolute; right: -42px; bottom: -55px; width: 185px; height: 185px; display: grid; place-items: center; border-radius: 50%; color: white; background: var(--wine); text-align: center; font: italic 28px/1.25 Georgia, serif; animation: medallion-float 6s ease-in-out infinite; box-shadow: 0 20px 55px rgb(71 13 33 / 24%); }
 
-.reserve-band { display: flex; align-items: center; justify-content: space-between; gap: 50px; min-height: 390px; padding: 72px max(24px, calc((100vw - 1180px) / 2)); color: white; background: linear-gradient(110deg, rgb(63 11 30 / 95%), rgb(111 25 50 / 88%)), url('/images/optimized/tiamo-23.jpg') center / cover; }
+.reserve-band { display: flex; align-items: center; justify-content: space-between; gap: 50px; min-height: 390px; padding: 72px max(24px, calc((100vw - 1180px) / 2)); color: white; background: linear-gradient(110deg, rgb(63 11 30 / 95%), rgb(111 25 50 / 88%)), url('/images/optimized/tiamo-23.webp') center / cover; }
 .reserve-band .section-kicker { color: #e9bec7; }
 .reserve-band h2 { margin: 0; font: 400 clamp(40px, 4.3vw, 64px)/1.3 "Hiragino Mincho ProN", "Yu Mincho", serif; letter-spacing: .06em; }
 .reserve-band p:not(.section-kicker) { margin: 18px 0 0; color: rgb(255 255 255 / 70%); font-size: 14px; letter-spacing: .07em; }
@@ -128,14 +143,19 @@ img { display: block; max-width: 100%; }
 .footer-links a { text-decoration: underline; text-underline-offset: 5px; }
 .footer-bottom { display: flex; justify-content: space-between; padding-top: 28px; border-top: 1px solid rgb(255 255 255 / 12%); color: #7f6e72; font-size: 11px; letter-spacing: .08em; }
 
-.page-hero { position: relative; min-height: 620px; display: flex; align-items: flex-end; color: white; background-position: center; background-size: cover; }
+.page-hero { position: relative; isolation: isolate; min-height: 620px; display: flex; align-items: flex-end; overflow: hidden; color: white; background-position: center; background-size: cover; }
+.page-hero::before { content: ""; position: absolute; z-index: -2; inset: -3%; background-image: inherit; background-position: center; background-size: cover; animation: page-hero-cinematic 16s var(--ease-luxury) both; will-change: transform; }
 .page-hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(19 8 12 / 76%), rgb(19 8 12 / 15%) 74%), linear-gradient(0deg, rgb(19 8 12 / 58%), transparent 55%); }
+.page-hero-shade::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgb(221 165 179 / 13%), transparent 30%); mix-blend-mode: screen; }
 .page-hero-content { position: relative; z-index: 2; width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding: 170px 0 80px; }
 .page-hero-center .page-hero-content { text-align: center; }
 .page-hero .eyebrow { margin-bottom: 24px; color: #eadfd8; }
 .page-hero h1 { margin: 0; font: 400 clamp(54px, 7vw, 96px)/1.2 "Hiragino Mincho ProN", "Yu Mincho", serif; letter-spacing: .07em; }
 .page-hero-content > p:last-child { max-width: 650px; margin: 24px 0 0; font-size: 15px; line-height: 2; letter-spacing: .08em; color: rgb(255 255 255 / 78%); }
 .page-hero-center .page-hero-content > p:last-child { margin-inline: auto; }
+.scroll-hint { position: absolute; z-index: 3; right: clamp(22px, 3vw, 50px); bottom: 35px; display: flex; flex-direction: column; align-items: center; gap: 11px; color: rgb(255 255 255 / 60%); font: 700 8px/1 Arial, sans-serif; letter-spacing: .24em; writing-mode: vertical-rl; }
+.scroll-hint span { position: relative; width: 1px; height: 58px; overflow: hidden; background: rgb(255 255 255 / 20%); }
+.scroll-hint span::after { content: ""; position: absolute; top: -100%; left: 0; width: 1px; height: 100%; background: white; animation: scroll-line 2.2s var(--ease-luxury) infinite; }
 
 .plan-section { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(55px, 9vw, 140px); align-items: center; padding-block: clamp(90px, 11vw, 150px); }
 .plan-heading h2 { margin: 0; font: 400 clamp(42px, 5vw, 70px)/1.1 Georgia, serif; letter-spacing: .05em; }
@@ -164,7 +184,7 @@ img { display: block; max-width: 100%; }
 .menu-card dd, .night-menu-card dd { white-space: nowrap; font-family: Georgia, serif; }
 
 .photo-quote { min-height: 560px; display: grid; place-items: center; padding: 70px 24px; color: white; text-align: center; background-position: center; background-size: cover; }
-.day-photo-quote { background-image: linear-gradient(rgb(17 8 11 / 48%), rgb(17 8 11 / 48%)), url('/images/optimized/tiamo-5.jpg'); }
+.day-photo-quote { background-image: linear-gradient(rgb(17 8 11 / 48%), rgb(17 8 11 / 48%)), url('/images/optimized/tiamo-5.webp'); }
 .photo-quote blockquote { margin: 0; font: 400 clamp(38px, 5vw, 70px)/1.5 "Hiragino Mincho ProN", "Yu Mincho", serif; letter-spacing: .08em; text-shadow: 0 5px 30px rgb(0 0 0 / 30%); }
 
 .night-menu-wrap { padding: clamp(100px, 12vw, 165px) max(24px, calc((100vw - 1180px) / 2)); color: white; background: #1f1418; }
@@ -175,7 +195,7 @@ img { display: block; max-width: 100%; }
 .night-menu-card h3 { color: #e7b6c1; border-color: rgb(255 255 255 / 15%); }
 .night-menu-card dl div { border-color: rgb(255 255 255 / 15%); }
 .private-section { display: grid; grid-template-columns: 1.15fr .85fr; min-height: 680px; }
-.private-photo { background: url('/images/optimized/tiamo-30.jpg') center / cover; }
+.private-photo { background: url('/images/optimized/tiamo-30.webp') center / cover; }
 .private-copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: clamp(55px, 8vw, 120px); background: #f2eae1; }
 .private-copy .button { margin-top: 34px; }
 
@@ -188,7 +208,7 @@ img { display: block; max-width: 100%; }
 .photo-grid figure:hover img { transform: scale(1.025); filter: brightness(.82); }
 .photo-grid figcaption { position: absolute; left: 20px; bottom: 18px; opacity: 0; transform: translateY(8px); color: white; font-size: 12px; letter-spacing: .08em; transition: .3s ease; }
 .photo-grid figure:hover figcaption { opacity: 1; transform: translateY(0); }
-.season-section { display: grid; grid-template-columns: 1fr 1fr auto; gap: 70px; align-items: center; padding: 100px max(24px, calc((100vw - 1180px) / 2)); color: white; background: linear-gradient(100deg, rgb(84 13 39 / 94%), rgb(44 10 22 / 84%)), url('/images/optimized/tiamo-14.jpg') center / cover; }
+.season-section { display: grid; grid-template-columns: 1fr 1fr auto; gap: 70px; align-items: center; padding: 100px max(24px, calc((100vw - 1180px) / 2)); color: white; background: linear-gradient(100deg, rgb(84 13 39 / 94%), rgb(44 10 22 / 84%)), url('/images/optimized/tiamo-14.webp') center / cover; }
 .season-section .section-kicker { color: #e8bbc5; }
 .season-section h2 { margin: 0; font: italic 400 clamp(48px, 5vw, 72px)/1.05 Georgia, serif; }
 .season-section > p { max-width: 470px; color: rgb(255 255 255 / 72%); font-size: 14px; line-height: 2; }
@@ -203,10 +223,47 @@ img { display: block; max-width: 100%; }
 .access-actions { display: flex; gap: 12px; margin-top: 38px; }
 .map-frame { min-height: 650px; box-shadow: 0 30px 70px rgb(46 27 31 / 15%); }
 .map-frame iframe { width: 100%; height: 100%; min-height: 650px; border: 0; filter: sepia(.18) saturate(.8) contrast(.95); }
-.access-reserve { min-height: 500px; display: grid; place-items: center; align-content: center; padding: 75px 24px; color: white; text-align: center; background: linear-gradient(rgb(22 8 14 / 78%), rgb(22 8 14 / 78%)), url('/images/optimized/tiamo-33.jpg') center / cover; }
+.access-reserve { min-height: 500px; display: grid; place-items: center; align-content: center; padding: 75px 24px; color: white; text-align: center; background: linear-gradient(rgb(22 8 14 / 78%), rgb(22 8 14 / 78%)), url('/images/optimized/tiamo-33.webp') center / cover; }
 .access-reserve .section-kicker { color: #e7b9c4; }
 .access-reserve a { display: block; margin-top: 28px; font: 400 clamp(34px, 4vw, 54px)/1 Georgia, serif; letter-spacing: .06em; }
 .access-reserve > p:last-child { max-width: 600px; margin: 24px 0 0; color: rgb(255 255 255 / 68%); font-size: 13px; line-height: 1.8; }
+
+.page-curtain { position: fixed; z-index: 1000; inset: 0; display: grid; place-items: center; pointer-events: none; color: #f8eee9; background: #2a1019; transform: translateY(0); transition: transform 1.15s var(--ease-luxury) .28s; }
+.page-curtain::before, .page-curtain::after { content: ""; position: absolute; width: min(72vw, 760px); height: 1px; background: linear-gradient(90deg, transparent, #a8707d, transparent); }
+.page-curtain::before { top: calc(50% - 63px); }
+.page-curtain::after { top: calc(50% + 67px); }
+.page-curtain span { opacity: 0; transform: translateY(14px); font: italic 400 clamp(52px, 8vw, 104px)/1 Georgia, serif; letter-spacing: .03em; animation: curtain-title 1.05s var(--ease-luxury) forwards; }
+.site-entered .page-curtain { transform: translateY(-102%); }
+.scroll-progress { position: fixed; z-index: 100; top: 0; left: 0; width: 100%; height: 2px; pointer-events: none; background: linear-gradient(90deg, #d7a9b4, #c8a96b); transform: scaleX(0); transform-origin: left; will-change: transform; }
+
+.motion-enhanced .reveal-item { opacity: 0; transform: translate3d(0, 58px, 0); transition: opacity .95s ease var(--reveal-delay, 0ms), transform 1.05s var(--ease-luxury) var(--reveal-delay, 0ms); will-change: opacity, transform; }
+.motion-enhanced .reveal-item.reveal-visible { opacity: 1; transform: translate3d(0, 0, 0); }
+.motion-enhanced .hero-content .eyebrow, .motion-enhanced .hero-content h1, .motion-enhanced .hero-content .hero-lead, .motion-enhanced .hero-content .hero-actions, .motion-enhanced .hero-hours, .motion-enhanced .page-hero-content .eyebrow, .motion-enhanced .page-hero-content h1, .motion-enhanced .page-hero-content > p:last-child { opacity: 0; transform: translate3d(0, 34px, 0); }
+.site-entered .hero-content .eyebrow, .site-entered .page-hero-content .eyebrow { animation: hero-copy-in .9s var(--ease-luxury) .72s forwards; }
+.site-entered .hero-content h1, .site-entered .page-hero-content h1 { animation: hero-copy-in 1.05s var(--ease-luxury) .84s forwards; }
+.site-entered .hero-content .hero-lead, .site-entered .page-hero-content > p:last-child { animation: hero-copy-in .95s var(--ease-luxury) 1.02s forwards; }
+.site-entered .hero-content .hero-actions { animation: hero-copy-in .95s var(--ease-luxury) 1.16s forwards; }
+.site-entered .hero-hours { animation: hero-copy-in .95s var(--ease-luxury) 1.26s forwards; }
+
+@keyframes curtain-title { to { opacity: 1; transform: translateY(0); } }
+@keyframes hero-copy-in { to { opacity: 1; transform: translate3d(0, 0, 0); } }
+@keyframes hero-cinematic { from { transform: scale(1.11); filter: saturate(.92) brightness(.86); } to { transform: scale(1.02); filter: saturate(1.03) brightness(1); } }
+@keyframes page-hero-cinematic { from { transform: scale(1.1) translate3d(-.7%, 0, 0); } to { transform: scale(1.02) translate3d(.7%, 0, 0); } }
+@keyframes medallion-float { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-10px) rotate(1.5deg); } }
+@keyframes scroll-line { 0% { transform: translateY(0); } 60%, 100% { transform: translateY(205%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .page-curtain { display: none; }
+  .motion-enhanced .reveal-item,
+  .motion-enhanced .hero-content .eyebrow,
+  .motion-enhanced .hero-content h1,
+  .motion-enhanced .hero-content .hero-lead,
+  .motion-enhanced .hero-content .hero-actions,
+  .motion-enhanced .hero-hours,
+  .motion-enhanced .page-hero-content .eyebrow,
+  .motion-enhanced .page-hero-content h1,
+  .motion-enhanced .page-hero-content > p:last-child { opacity: 1 !important; transform: none !important; }
+}
 
 @media (max-width: 920px) {
   .header-call { display: none; }

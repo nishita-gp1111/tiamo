@@ -22,6 +22,7 @@ export default function Home() {
           <div><span>DAY</span><strong>11:00 — 16:00</strong></div>
           <div><span>NIGHT</span><strong>19:00 — 24:00</strong></div>
         </div>
+        <div className="scroll-hint" aria-hidden="true"><span /> SCROLL</div>
       </section>
 
       <section className="welcome-strip">
@@ -38,8 +39,8 @@ export default function Home() {
           <Link className="text-link" href="/gallery">Ti Amoの雰囲気を見る <span>→</span></Link>
         </div>
         <div className="intro-images">
-          <Image className="intro-image-main" src="/images/optimized/tiamo-18.jpg" alt="Ti Amoのママがカウンターで笑顔を見せる様子" width={1600} height={1200} />
-          <Image className="intro-image-sub" src="/images/optimized/tiamo-15.jpg" alt="Ti Amoのボックス席とカラオケモニター" width={1600} height={1200} />
+          <Image className="intro-image-main" src="/images/optimized/tiamo-18.webp" alt="Ti Amoのママがカウンターで笑顔を見せる様子" width={1600} height={1200} />
+          <Image className="intro-image-sub" src="/images/optimized/tiamo-15.webp" alt="Ti Amoのボックス席とカラオケモニター" width={1600} height={1200} />
         </div>
       </section>
 
@@ -66,7 +67,7 @@ export default function Home() {
 
       <section className="event-section content-section">
         <div className="event-visual">
-          <Image src="/images/optimized/tiamo-14.jpg" alt="花とカラフルな装飾が飾られたTi Amo店内" width={1200} height={1500} />
+          <Image src="/images/optimized/tiamo-14.webp" alt="花とカラフルな装飾が飾られたTi Amo店内" width={1200} height={1500} />
           <span>Seasonal<br />Events</span>
         </div>
         <div className="event-copy">

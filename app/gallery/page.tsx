@@ -9,22 +9,22 @@ export const metadata: Metadata = {
 };
 
 const photos = [
-  ['tiamo-24.jpg', 'ゆったり座れるカウンター席', 'wide'],
-  ['tiamo-15.jpg', 'カラオケを楽しめるボックス席', 'tall'],
-  ['tiamo-7.jpg', '花とギターで彩られた店内', ''],
-  ['tiamo-18.jpg', '笑顔でお迎えします', 'tall'],
-  ['tiamo-29.jpg', 'グループでもくつろげる広い店内', 'wide'],
-  ['tiamo-26.jpg', 'カラオケ設備', ''],
-  ['tiamo-27.jpg', 'ドリンクとスナックも豊富', ''],
-  ['tiamo-32.jpg', '会話の弾むボックス席', ''],
-  ['tiamo-35.jpg', 'Ti Amoの看板', 'tall'],
+  ['tiamo-24.webp', 'ゆったり座れるカウンター席', 'wide'],
+  ['tiamo-15.webp', 'カラオケを楽しめるボックス席', 'tall'],
+  ['tiamo-7.webp', '花とギターで彩られた店内', ''],
+  ['tiamo-18.webp', '笑顔でお迎えします', 'tall'],
+  ['tiamo-29.webp', 'グループでもくつろげる広い店内', 'wide'],
+  ['tiamo-26.webp', 'カラオケ設備', ''],
+  ['tiamo-27.webp', 'ドリンクとスナックも豊富', ''],
+  ['tiamo-32.webp', '会話の弾むボックス席', ''],
+  ['tiamo-35.webp', 'Ti Amoの看板', 'tall'],
 ];
 
 export default function GalleryPage() {
   return (
     <main>
       <SiteHeader />
-      <PageHero eyebrow="ATMOSPHERE · PEOPLE · EVENTS" title="店内とイベント" lead="少しだけ、Ti Amoの中をのぞいてみてください。" image="/images/optimized/tiamo-15.jpg" align="center" />
+      <PageHero eyebrow="ATMOSPHERE · PEOPLE · EVENTS" title="店内とイベント" lead="少しだけ、Ti Amoの中をのぞいてみてください。" image="/images/optimized/tiamo-15.webp" align="center" />
 
       <section className="gallery-intro content-section">
         <div>
