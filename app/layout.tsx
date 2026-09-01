@@ -2,12 +2,14 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://snack-ti-amo-toneri.s-nishita.chatgpt.site'),
   title: {
     default: 'Snack Ti Amo｜足立区舎人のアットホームなスナック',
     template: '%s｜Snack Ti Amo',
   },
   description: '昼はカラオケ歌い放題、夜は2時間飲み放題・歌い放題。足立区舎人のスナック Ti Amo。貸切もご予約いただけます。',
   keywords: ['スナック', '舎人', '足立区', 'カラオケ', '昼カラオケ', 'Ti Amo', '見沼代親水公園'],
+  alternates: { canonical: '/' },
   icons: { icon: '/favicon.svg' },
   openGraph: {
     type: 'website',
@@ -34,6 +36,8 @@ const localBusiness = {
   '@context': 'https://schema.org',
   '@type': 'BarOrPub',
   name: 'Snack Ti Amo',
+  url: 'https://snack-ti-amo-toneri.s-nishita.chatgpt.site',
+  image: 'https://snack-ti-amo-toneri.s-nishita.chatgpt.site/og.png',
   alternateName: 'スナック ティアモ',
   telephone: '+81-3-5647-6867',
   address: {
